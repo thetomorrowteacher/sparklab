@@ -238,7 +238,7 @@ function leave(){ resetAll(); S.role=null; go("landing"); }
 /* ================= VIEWS ================= */
 function vLanding(){
   return '<div class="center" style="text-align:center">' +
-    '<img src="' + LOGO + '" alt="SparkLab" style="height:190px;width:auto;filter:drop-shadow(0 0 18px rgba(83,199,232,.35))">' +
+    '<img src="' + LOGO + '" alt="SparkLab" style="display:block;margin:0 auto;height:190px;width:auto;filter:drop-shadow(0 0 18px rgba(83,199,232,.35))">' +
     '<div class="df title-xl" style="margin-bottom:4px;font-size:1.4rem">Welcome to the Lab</div>' +
     '<p class="muted">The design thinking race. Spin techniques, forge concepts, draft your solution — first team through every checkpoint wins.</p>' +
     '<div class="grid3" style="margin-top:22px">' +
@@ -570,7 +570,7 @@ function vPodium(){
   const hostAward = (S.role==="host" && teams.length) ?
     '<div class="row" style="margin-top:14px"><select id="awteam" style="max-width:220px">' + teams.map(t=>'<option value="'+t.id+'">'+esc(t.name)+'</option>').join("") + '</select>' +
     '<button class="btn small gold" onclick="giveAward()">🏅 Client\'s Choice award</button></div>' : "";
-  return '<div style="text-align:center"><img src="' + LOGO + '" alt="" style="height:90px;width:auto"><div class="df title-xl">🏁 ' + (done.length ? "We have a winner!" : "Race Results") + '</div>' +
+  return '<div style="text-align:center"><img src="' + LOGO + '" alt="" style="display:block;margin:0 auto;height:90px;width:auto"><div class="df title-xl">🏁 ' + (done.length ? "We have a winner!" : "Race Results") + '</div>' +
     podium + '<table style="max-width:900px;margin:10px auto;text-align:left"><tr><th>Rank</th><th>Team</th><th>Players</th><th>Round 1</th><th>Time / status</th><th>Award</th></tr>' + rows + '</table>' +
     hostAward + '<div class="err">' + esc(S.err) + '</div></div>';
 }
