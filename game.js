@@ -1,0 +1,582 @@
+window.__SL_BOOTED = true;
+
+"use strict";
+const LOGO = "data:image/webp;base64,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";
+/* ================= CONFIG ================= */
+const SB_URL = "https://hyxiagexyptzvetqjmnj.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5eGlhZ2V4eXB0enZldHFqbW5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwODM4MTYsImV4cCI6MjA4OTY1OTgxNn0.hqHVlRu775dZfJrKxSFMNEPhANu5EFm7gJpaJ3RnbnY";
+const POLL_MS = 4000;
+
+async function rpc(name, args){
+  const r = await fetch(SB_URL + "/rest/v1/rpc/" + name, {
+    method:"POST",
+    headers:{ "apikey":SB_KEY, "Authorization":"Bearer "+SB_KEY, "Content-Type":"application/json" },
+    body: JSON.stringify(args || {})
+  });
+  if(!r.ok){ throw new Error("network_" + r.status); }
+  return r.json();
+}
+async function uploadPhoto(file, prefix){
+  const ext = (file.name && file.name.includes(".")) ? file.name.split(".").pop().toLowerCase().replace(/[^a-z0-9]/g,"") : "jpg";
+  const path = prefix + "-" + Date.now() + "-" + Math.floor(Math.random()*1e6) + "." + ext;
+  const r = await fetch(SB_URL + "/storage/v1/object/sparklab-submissions/" + path, {
+    method:"POST",
+    headers:{ "apikey":SB_KEY, "Authorization":"Bearer "+SB_KEY, "Content-Type": file.type || "image/jpeg" },
+    body: file
+  });
+  if(!r.ok) throw new Error("upload_failed");
+  return SB_URL + "/storage/v1/object/public/sparklab-submissions/" + path;
+}
+
+/* ================= LOCAL STATE ================= */
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem("sl_"+k)); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem("sl_"+k, JSON.stringify(v)); }catch(e){} }
+function lsDel(k){ try{ localStorage.removeItem("sl_"+k); }catch(e){} }
+
+let S = {
+  screen: "landing",
+  role: null,            // "player" | "host" | "freeplay"
+  licenseKey: lsGet("license") || "",
+  institution: "",
+  shelf: [],
+  sessionId: lsGet("sessionId") || null,
+  hostToken: lsGet("hostToken") || null,
+  playerId: lsGet("playerId") || null,
+  playerName: lsGet("playerName") || "",
+  teamId: lsGet("teamId") || null,
+  resumeCode: lsGet("resumeCode") || null,
+  state: null,           // last sl_state / sl_host_state bundle
+  hostTab: "lobby",
+  err: "",
+  busy: false,
+  spin: { active:false, idx:0 },
+  activeTech: 0,
+  fp: lsGet("fp") || null,  // freeplay local mirror {stage, techniques:[], checks:{}, notes}
+  confettiDone: false
+};
+let pollTimer = null;
+
+/* ================= GAME CONTENT ================= */
+const TECHS = [
+ {name:"Brainstorming", color:"#ed7435", summary:"A fast group technique for generating many possible solutions to your client's problem.", steps:["State the problem and whose needs matter: your client, users, or audience.","Work as a team and keep the burst short and fast.","Invite every perspective — wild ideas welcome.","Build on each other's ideas and write everything down."]},
+ {name:"Worst Idea", color:"#7052a5", summary:"Pitch the WORST possible solutions on purpose, then flip their negative qualities into good ones.", steps:["Take turns pitching intentionally terrible solutions.","Notice which qualities would fail your client.","Flip those negatives into positive qualities a solution should have.","Use the opposites as springboards for real ideas."]},
+ {name:"Mind Mapping", color:"#569b48", summary:"Map the problem visually — branches for needs and barriers, bubbles of ideas, clusters of solutions.", steps:["Write the problem and the people affected in the middle.","Draw branches for needs, barriers, and ideas.","Add bubbles with details and concepts around each branch.","Connect related ideas into clusters worth exploring."]},
+ {name:"Brainwriting", color:"#d9a40a", summary:"Write silently, then pass pages around so everyone builds on everyone's ideas.", steps:["Everyone writes ideas silently for five minutes.","Pass your page — add to what you receive.","Keep passing until all pages have everyone's input.","Review together and pick the strongest directions."]},
+ {name:"Questioning Assumptions", color:"#d95f5f", summary:"List the beliefs behind the problem, test which are true, and reverse one to find new paths.", steps:["List assumptions about the client, users, and problem.","Include positive AND negative assumptions.","Discuss which are true and which are just habits.","Reverse one assumption — what new ideas appear?"]},
+ {name:"SCAMPER", color:"#bd4aad", summary:"Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse.", steps:["Pick one solution element to focus on.","Substitute, Combine, Adapt, or Modify it.","Put it to another use, or Eliminate what doesn't help.","Reverse or rearrange it — keep the strongest direction."]},
+ {name:"Sketching", color:"#4788c4", summary:"Draw solutions instead of writing them, pass drawings around, connect the best parts.", steps:["Everyone sketches a possible solution — rough is fine.","Pass your drawing — teammates add or vary it.","Present all drawings and discuss what each suggests.","Combine the best parts into one direction."]}
+];
+const STAGES = ["r1","gate1","r2","gate2","r3","gate3","finished"];
+const STAGE_LABEL = {r1:"Round 1 — Technique Sprint", gate1:"Checkpoint 1", r2:"Round 2 — The Idea Generator", gate2:"Checkpoint 2", r3:"Round 3 — Drafting & Sketching", gate3:"Checkpoint 3 — Final Gate", finished:"FINISHED"};
+const R3_CHECKS = [
+ "Hand-drawn drafts done: title on each page, 4–6 labeled arrows, at least two views or angles, a how-it-works caption, dark lines.",
+ "Photos digitized in Canva: cropped to the page, straightened, brightness + contrast up, shadows down — looks scanned, not photographed.",
+ "Uploaded into the Ideation Development Form (IDEA 1–3 boxes) and enhanced with Canva text, arrows, and highlights over the drawings."
+];
+const R2_CHECKS = [
+ "We brought our client's problem and our Round 1 sticky notes to ThinkTable AI.",
+ "ThinkTable interviewed us and we sharpened our ideas into up to 3 buildable concepts.",
+ "We have a Sketch Blueprint for each concept: main view, second view, arrow labels, written details.",
+ "Every Round 1 session has its sticky note filled on our Ideation Development Form."
+];
+
+/* ================= HELPERS ================= */
+const $ = sel => document.querySelector(sel);
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function myTeam(){ if(!S.state) return null; return (S.state.teams||[]).find(t => t.id === S.teamId) || (S.state.teams||[]).find(t => (t.members||[]).some(m => m.id === S.playerId)); }
+function setErr(m){ S.err = m || ""; render(); }
+function go(screen){ S.screen = screen; S.err = ""; render(); }
+function saveIds(){ lsSet("sessionId",S.sessionId); lsSet("hostToken",S.hostToken); lsSet("playerId",S.playerId); lsSet("teamId",S.teamId); lsSet("playerName",S.playerName); lsSet("license",S.licenseKey); lsSet("resumeCode",S.resumeCode); }
+function resetAll(){ ["sessionId","hostToken","playerId","teamId","resumeCode","fp"].forEach(lsDel); S.sessionId=S.hostToken=S.playerId=S.teamId=S.resumeCode=null; S.state=null; S.fp=null; stopPoll(); }
+function fmtDur(ms){ if(ms==null) return "—"; const s=Math.floor(ms/1000), m=Math.floor(s/60); return m+"m "+String(s%60).padStart(2,"0")+"s"; }
+function typing(){ const a=document.activeElement; return a && (a.tagName==="INPUT"||a.tagName==="TEXTAREA"||a.tagName==="SELECT"); }
+
+/* ================= POLLING ================= */
+function startPoll(){ stopPoll(); pollTimer = setInterval(pollOnce, POLL_MS); pollOnce(); }
+function stopPoll(){ if(pollTimer){ clearInterval(pollTimer); pollTimer = null; } }
+async function pollOnce(){
+  if(!S.sessionId) return;
+  try{
+    const st = S.role === "host"
+      ? await rpc("sl_host_state", { p_session:S.sessionId, p_host_token:S.hostToken })
+      : await rpc("sl_state", { p_session:S.sessionId });
+    if(st && st.ok){
+      S.state = st;
+      const t = myTeam(); if(t && !S.teamId){ S.teamId = t.id; saveIds(); }
+      const sig = JSON.stringify({
+        s: st.session && st.session.status,
+        t: (st.teams||[]).map(x => [x.stage, (x.techniques_cleared||[]).length, x.last_submission && x.last_submission.status, (x.members||[]).length, x.finish_rank, x.award]),
+        l: (st.lobby||[]).length, p: (st.pending||[]).length
+      });
+      if(sig !== S.lastSig){ S.lastSig = sig; render(); }
+    }
+  }catch(e){ /* transient */ }
+}
+
+/* ================= RENDER ROOT ================= */
+function render(){
+  const m = $("#main"), tr = $("#topright");
+  const sess = S.state && S.state.session;
+  tr.innerHTML = sess ? (
+    '<span class="badge">Code ' + esc(sess.code) + '</span>' +
+    '<span class="badge ' + (sess.status==="live"?"g":sess.status==="paused"?"o":"y") + '">' + esc(sess.status) + '</span>' +
+    (S.role ? '<button class="btn small" onclick="leave()">Exit</button>' : "")
+  ) : (S.screen !== "landing" ? '<button class="btn small" onclick="leave()">Back</button>' : "");
+  const views = { landing:vLanding, join:vJoin, hostkey:vHostKey, shelf:vShelf, create:vCreate,
+    lobby:vLobby, hostgame:vHostGame, play:vPlay, podium:vPodium, fpsetup:vFpSetup, fpplay:vFpPlay, fpresume:vFpResume };
+  m.innerHTML = (views[S.screen] || vLanding)();
+  if(S.screen==="podium" && !S.confettiDone){ confetti(); S.confettiDone = true; }
+}
+function leave(){ resetAll(); S.role=null; go("landing"); }
+
+/* ================= VIEWS ================= */
+function vLanding(){
+  return '<div class="center" style="text-align:center">' +
+    '<img src="' + LOGO + '" alt="SparkLab" style="height:190px;width:auto;filter:drop-shadow(0 0 18px rgba(83,199,232,.35))">' +
+    '<div class="df title-xl" style="margin-bottom:4px;font-size:1.4rem">Welcome to the Lab</div>' +
+    '<p class="muted">The design thinking race. Spin techniques, forge concepts, draft your solution — first team through every checkpoint wins.</p>' +
+    '<div class="grid3" style="margin-top:22px">' +
+      '<button class="btn primary" onclick="go(\'join\')">Join a Game</button>' +
+      '<button class="btn gold" onclick="go(\'fpsetup\')">Free Play</button>' +
+      '<button class="btn" onclick="go(\'hostkey\')">Host</button>' +
+    '</div>' +
+    '<p class="muted" style="margin-top:18px;font-size:.8rem">Resuming Free Play? <a href="#" style="color:var(--cyan)" onclick="go(\'fpresume\');return false">Enter your resume code</a></p>' +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+function vJoin(){
+  return '<div class="center">' +
+    '<div class="df title-xl" style="font-size:1.4rem">Join a Game</div>' +
+    '<label>Game code</label><input id="jcode" maxlength="6" style="text-transform:uppercase;letter-spacing:.3em;font-family:Audiowide" placeholder="ABC123">' +
+    '<label>Your name or nickname</label><input id="jname" maxlength="24" placeholder="So your team can find you">' +
+    '<div class="row" style="margin-top:18px"><button class="btn primary" onclick="doJoin()" ' + (S.busy?"disabled":"") + '>Enter the Lab</button></div>' +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function doJoin(){
+  const code = $("#jcode").value.trim(), name = $("#jname").value.trim();
+  if(!code || !name){ return setErr("Enter the game code and your name."); }
+  S.busy = true; render();
+  try{
+    const r = await rpc("sl_join", { p_code:code, p_name:name });
+    S.busy = false;
+    if(!r.ok){ return setErr(r.error==="bad_code"?"No game found with that code.":r.error==="session_paused"?"This game is paused — ask your host to resume it.":"Could not join: "+r.error); }
+    S.role = "player"; S.sessionId = r.session_id; S.playerId = r.player_id; S.playerName = name; S.teamId = null; saveIds();
+    startPoll(); go("lobby");
+  }catch(e){ S.busy = false; setErr("Network problem — try again."); }
+}
+function vHostKey(){
+  return '<div class="center">' +
+    '<div class="df title-xl" style="font-size:1.4rem">Host Console</div>' +
+    '<p class="muted">Enter your SparkLab license key — it came with your game box.</p>' +
+    '<label>License key</label><input id="hkey" value="' + esc(S.licenseKey) + '" placeholder="SPARK-XXXX-XXXX" style="text-transform:uppercase">' +
+    '<div class="row" style="margin-top:18px"><button class="btn primary" onclick="doShelf()" ' + (S.busy?"disabled":"") + '>Open my game shelf</button></div>' +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function doShelf(){
+  const k = $("#hkey") ? $("#hkey").value.trim() : S.licenseKey;
+  if(!k) return setErr("Enter your license key.");
+  S.busy = true; render();
+  try{
+    const r = await rpc("sl_shelf", { p_key:k });
+    S.busy = false;
+    if(!r.ok) return setErr("That license key wasn't recognized.");
+    S.licenseKey = k.toUpperCase(); S.institution = r.institution; S.shelf = r.sessions || []; saveIds();
+    go("shelf");
+  }catch(e){ S.busy=false; setErr("Network problem — try again."); }
+}
+function vShelf(){
+  const rows = S.shelf.map(s =>
+    '<tr><td class="df" style="font-size:.75rem">' + esc(s.name) + '</td>' +
+    '<td><span class="code-big" style="font-size:1rem">' + esc(s.code) + '</span></td>' +
+    '<td>' + esc(s.mode) + '</td>' +
+    '<td><span class="badge ' + (s.status==="live"?"g":s.status==="paused"?"o":"") + '" style="font-size:.6rem">' + esc(s.status) + '</span></td>' +
+    '<td>' + s.players + ' players / ' + s.teams + ' teams</td>' +
+    '<td>' + (s.expires_at ? ("expires " + new Date(s.expires_at).toLocaleDateString()) : "—") + '</td>' +
+    '<td><button class="btn small primary" onclick="openSession(\'' + s.id + '\',\'' + s.host_token + '\')">' + (s.status==="completed"?"View":"Open") + '</button></td></tr>'
+  ).join("");
+  return '<div>' +
+    '<div class="row spread"><div><div class="df title-xl" style="font-size:1.3rem">Game Shelf</div>' +
+    '<p class="muted">' + esc(S.institution) + ' — completed games are cleared 14 days after they end.</p></div>' +
+    '<button class="btn gold fill" onclick="go(\'create\')">+ New Game</button></div>' +
+    (S.shelf.length ? '<table style="margin-top:14px"><tr><th>Name</th><th>Code</th><th>Mode</th><th>Status</th><th>Size</th><th>Expiry</th><th></th></tr>' + rows + '</table>'
+      : '<p class="muted" style="margin-top:20px">No games yet — create your first one.</p>') +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+function openSession(id, token){ S.role="host"; S.sessionId=id; S.hostToken=token; saveIds(); startPoll(); go("hostgame"); }
+function vCreate(){
+  return '<div class="center">' +
+    '<div class="df title-xl" style="font-size:1.3rem">New Game</div>' +
+    '<label>Session name</label><input id="cname" placeholder="e.g. Grade 8 — Period 3" maxlength="40">' +
+    '<div class="grid2">' +
+    '<div><label>Team formation</label><select id="cteam"><option value="auto">Auto — balanced teams</option><option value="manual">Manual — players pick teams</option></select></div>' +
+    '<div><label>Round 1 sprint (minutes)</label><select id="cmin"><option>10</option><option selected>15</option><option>20</option></select></div>' +
+    '</div>' +
+    '<label>Techniques required to clear Checkpoint 1</label><select id="creq"><option>2</option><option selected>3</option><option>4</option><option>5</option></select>' +
+    '<div class="row" style="margin-top:18px"><button class="btn primary" onclick="doCreate()" ' + (S.busy?"disabled":"") + '>Create game</button>' +
+    '<button class="btn" onclick="go(\'shelf\')">Back</button></div>' +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function doCreate(){
+  const nm = $("#cname").value, tm = $("#cteam").value, mins = parseInt($("#cmin").value,10), req = parseInt($("#creq").value,10);
+  S.busy = true; render();
+  try{
+    const r = await rpc("sl_create_session", { p_key:S.licenseKey, p_name:nm,
+      p_mode:"game", p_team_mode:tm,
+      p_settings:{ r1_minutes:mins, min_techniques:req } });
+    S.busy = false;
+    if(!r.ok) return setErr(r.error==="too_many_active_sessions"?"Your shelf is full (10 active games) — complete or clear one first.":"Could not create: "+r.error);
+    openSession(r.session_id, r.host_token);
+  }catch(e){ S.busy=false; setErr("Network problem — try again."); }
+}
+
+/* ---------- Player lobby ---------- */
+function vLobby(){
+  if(!S.state) return '<p class="muted">Connecting…</p>';
+  const sess = S.state.session, t = myTeam();
+  if((sess.status === "live" || sess.status === "paused") && t) { return vPlay(); }
+  if(sess.status === "completed") return vPodium();
+  let inner = "";
+  if(sess.team_mode === "manual" && !t){
+    const teams = (S.state.teams||[]).map(tm => {
+      const full = (tm.members||[]).length >= 4;
+      return '<div class="teamcard"><h4>' + esc(tm.name) + '</h4>' +
+        (tm.members||[]).map(mm => '<div class="member">• ' + esc(mm.name) + '</div>').join("") +
+        '<div style="margin-top:8px"><button class="btn small ' + (full?"":"primary") + '" ' + (full?"disabled":"") + ' onclick="joinTeam(\'' + tm.id + '\')">' + (full?"Full":"Join") + '</button></div></div>';
+    }).join("");
+    inner = '<div class="row" style="margin:10px 0"><input id="tname" placeholder="New team name" maxlength="24" style="max-width:260px">' +
+      '<button class="btn gold" onclick="createTeam()">Create team</button></div>' +
+      '<div class="grid3">' + teams + '</div>';
+  } else if(t){
+    inner = '<div class="teamcard" style="max-width:420px"><h4>' + esc(t.name) + '</h4>' +
+      (t.members||[]).map(mm => '<div class="member">• ' + esc(mm.name) + (mm.id===S.playerId?" (you)":"") + '</div>').join("") +
+      (sess.team_mode==="manual" ? '<div style="margin-top:8px"><button class="btn small warn" onclick="leaveTeam()">Leave team</button></div>' : "") +
+      '</div>';
+  } else {
+    inner = '<p class="muted">Waiting for the host to form teams…</p>';
+  }
+  const lobbyNames = (S.state.lobby||[]).map(p => '<span class="chip' + (p.id===S.playerId?' cur':'') + '">' + esc(p.name) + '</span>').join(" ");
+  return '<div><div class="df title-xl" style="font-size:1.3rem">Lobby</div>' +
+    '<p class="muted">Hi <b style="color:var(--cyan)">' + esc(S.playerName) + '</b> — the game starts when your host launches it.' +
+    (sess.status==="paused" ? ' <span class="badge o">Paused</span>' : '') + '</p>' +
+    inner +
+    (lobbyNames ? '<label style="margin-top:20px">Players without a team</label><div class="row">' + lobbyNames + '</div>' : '') +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function createTeam(){ const n=$("#tname").value.trim(); if(!n) return setErr("Give your team a name.");
+  const r = await rpc("sl_create_team",{p_session:S.sessionId,p_player:S.playerId,p_name:n});
+  if(r.ok){ S.teamId=r.team_id; saveIds(); pollOnce(); } else setErr(r.error); }
+async function joinTeam(id){ const r = await rpc("sl_join_team",{p_player:S.playerId,p_team:id});
+  if(r.ok){ S.teamId=id; saveIds(); pollOnce(); } else setErr(r.error==="team_full"?"That team is full.":r.error); }
+async function leaveTeam(){ await rpc("sl_leave_team",{p_player:S.playerId}); S.teamId=null; saveIds(); pollOnce(); }
+
+/* ---------- Player play ---------- */
+function stageIdx(st){ return Math.max(0, STAGES.indexOf(st)); }
+function vPlay(){
+  if(!S.state) return '<p class="muted">Connecting…</p>';
+  const sess = S.state.session, t = myTeam();
+  if(!t) return vLobby();
+  if(sess.status === "paused") return '<div class="center" style="text-align:center"><div class="df title-xl" style="font-size:1.6rem">⏸ Game Paused</div><p class="muted">Your progress is saved. See you next session — everything will be exactly where you left it.</p></div>';
+  if(sess.status === "completed" || t.stage === "finished") return vPodium();
+  const st = t.stage;
+  let body = "";
+  if(st === "r1") body = vR1(t, sess);
+  else if(st === "r2") body = vR2(t);
+  else if(st === "r3") body = vR3(t);
+  else body = vGateWait(t);
+  const ls = t.last_submission;
+  if(ls && ls.status === "bounced" && st.startsWith("r")){
+    body = '<div class="banner red" style="margin-bottom:12px">↩ Checkpoint ' + ls.checkpoint + ' bounced' + (ls.host_note ? ': "' + esc(ls.host_note) + '"' : "") + ' — fix it and resubmit!</div>' + body;
+  }
+  return '<div>' +
+    '<div class="row spread" style="margin-bottom:12px"><div>' +
+    '<span class="df" style="color:var(--cyan);font-size:1rem;text-transform:uppercase">' + esc(t.name) + '</span> ' +
+    '<span class="badge y" style="margin-left:8px">' + esc(STAGE_LABEL[st]) + '</span></div>' +
+    trackHtml(t) + '</div>' + body + '<div class="err">' + esc(S.err) + '</div></div>';
+}
+function trackHtml(t){
+  const idx = stageIdx(t.stage);
+  return '<div class="track" style="min-width:220px;max-width:340px;flex:1">' + STAGES.slice(0,6).map((s,i) => {
+    let cls = "node"; if(t.stage==="finished") cls+=" done";
+    else if(i<idx) cls+=" on"; else if(i===idx) cls += (s.startsWith("gate") ? " gate" : " on");
+    return '<span class="' + cls + '" title="' + esc(STAGE_LABEL[s]) + '"></span>';
+  }).join("") + '</div>';
+}
+function vR1(t, sess){
+  const cleared = t.techniques_cleared || [];
+  const need = (sess.settings && sess.settings.min_techniques) || 3;
+  const tech = TECHS[S.activeTech];
+  const chips = TECHS.map((x,i) => '<span class="chip' + (cleared.includes(x.name)?' done':'') + (i===S.activeTech?' cur':'') + '">' + (cleared.includes(x.name)?'✓ ':'') + esc(x.name) + '</span>').join(" ");
+  const canSubmit = cleared.length >= need;
+  return '<div class="grid2">' +
+    '<div><div class="tech-panel" style="background:' + tech.color + '">' +
+      '<div class="row spread"><span class="tech-name">' + (S.spin.active ? esc(TECHS[S.spin.idx].name) : esc(tech.name)) + '</span>' +
+      '<span><button class="btn small" style="border-color:#fff;color:#fff" onclick="spinTech()">🎲 Spin</button> ' +
+      '<button class="btn small gold fill" onclick="clearTech()" ' + (cleared.includes(tech.name)?"disabled":"") + '>' + (cleared.includes(tech.name)?"Cleared ✓":"Mark cleared") + '</button></span></div>' +
+      '<p style="font-size:.9rem">' + esc(tech.summary) + '</p><ol class="steps">' + tech.steps.map(s=>'<li>'+esc(s)+'</li>').join("") + '</ol></div>' +
+      '<div class="row" style="margin-top:10px">' + chips + '</div></div>' +
+    '<div><div class="panel"><h4 class="df" style="margin:0 0 8px;color:var(--yellow);font-size:.8rem;text-transform:uppercase">Checkpoint 1 — Sprint Log</h4>' +
+      '<p class="muted">Run each technique on your client\'s problem and log a sticky note per session on your Ideation Development Form. Clear at least <b style="color:var(--yellow)">' + need + '</b> techniques (' + cleared.length + '/' + need + ' so far), then photograph your sticky notes and submit.</p>' +
+      submitFormHtml(1, canSubmit, canSubmit ? "" : ("Clear " + (need - cleared.length) + " more technique(s) to unlock submission.")) +
+      '</div></div></div>';
+}
+function spinTech(){
+  if(S.spin.active) return;
+  const t = myTeam(); const cleared = (t && t.techniques_cleared) || [];
+  const avail = TECHS.map((x,i)=>i).filter(i => !cleared.includes(TECHS[i].name) && i !== S.activeTech);
+  if(!avail.length) return;
+  const final = avail[Math.floor(Math.random()*avail.length)];
+  S.spin.active = true; let n = 0;
+  const reel = setInterval(() => {
+    S.spin.idx = avail[n % avail.length]; n++; render();
+    if(n > 9){ clearInterval(reel); S.spin.active = false; S.activeTech = final; render(); }
+  }, 100);
+}
+async function clearTech(){
+  const t = myTeam(); if(!t) return;
+  const r = await rpc("sl_clear_technique",{ p_team:t.id, p_technique:TECHS[S.activeTech].name });
+  if(r.ok) pollOnce();
+}
+function vR2(t){
+  const checks = R2_CHECKS.map((c,i)=>'<label class="check"><input type="checkbox" id="r2c'+i+'"><span>'+esc(c)+'</span></label>').join("");
+  return '<div class="grid2">' +
+    '<div class="panel"><h4 class="df" style="margin:0 0 8px;color:var(--cyan);font-size:.8rem;text-transform:uppercase">Round 2 — The Idea Generator</h4>' +
+    '<p class="muted">Bring your client\'s problem and your Round 1 sticky notes to <b style="color:var(--cyan)">ThinkTable AI</b>. It interviews your team and coaches you into up to 3 sketch-ready concepts, each with a Sketch Blueprint: main view, second view, 4–6 arrow labels, and written details.</p>' + checks + '</div>' +
+    '<div><div class="panel"><h4 class="df" style="margin:0 0 8px;color:var(--yellow);font-size:.8rem;text-transform:uppercase">Checkpoint 2 — Blueprints Logged</h4>' +
+    '<p class="muted">Photograph your Ideation Development Form with all sticky notes filled, then submit for the host\'s gate check.</p>' +
+    submitFormHtml(2, true, "") + '</div></div></div>';
+}
+function vR3(t){
+  const checks = R3_CHECKS.map((c,i)=>'<label class="check"><input type="checkbox" id="r3c'+i+'"><span>'+esc(c)+'</span></label>').join("");
+  return '<div class="grid2">' +
+    '<div class="panel"><h4 class="df" style="margin:0 0 8px;color:var(--orange);font-size:.8rem;text-transform:uppercase">Round 3 — Drafting & Sketching</h4>' +
+    '<p class="muted">Draw your three concepts by hand, digitize the photos, and enhance them in Canva. The drawing stays the star — digital elements make it presentation-ready.</p>' + checks + '</div>' +
+    '<div><div class="panel"><h4 class="df" style="margin:0 0 8px;color:var(--yellow);font-size:.8rem;text-transform:uppercase">Final Gate — Concept Art Complete</h4>' +
+    '<p class="muted">Photograph or screenshot your finished Ideation Development Form (all three IDEA boxes enhanced) and submit. First team passed wins!</p>' +
+    submitFormHtml(3, true, "") + '</div></div></div>';
+}
+function submitFormHtml(cp, enabled, hint){
+  return '<div style="margin-top:10px">' +
+    '<input type="file" id="subfile" accept="image/*" ' + (enabled?"":"disabled") + ' style="padding:8px">' +
+    '<textarea id="subnote" rows="2" placeholder="Note to your host (optional)" style="margin-top:8px" ' + (enabled?"":"disabled") + '></textarea>' +
+    '<div class="row" style="margin-top:10px"><button class="btn gold fill" onclick="doSubmit(' + cp + ')" ' + (enabled && !S.busy ? "" : "disabled") + '>' + (S.busy?"Uploading…":"Submit Checkpoint " + cp) + '</button>' +
+    (hint ? '<span class="muted" style="font-size:.78rem">' + esc(hint) + '</span>' : "") + '</div></div>';
+}
+async function doSubmit(cp){
+  const t = myTeam(); if(!t) return;
+  const f = $("#subfile").files[0];
+  const note = $("#subnote") ? $("#subnote").value : "";
+  if(!f) return setErr("Attach a photo of your Ideation Development Form first.");
+  S.busy = true; render();
+  try{
+    const url = await uploadPhoto(f, (S.state.session.code||"S") + "-" + cp);
+    const r = await rpc("sl_submit",{ p_team:t.id, p_checkpoint:cp, p_photo_url:url, p_note:note });
+    S.busy = false;
+    if(!r.ok) return setErr("Submit failed: " + r.error);
+    pollOnce();
+  }catch(e){ S.busy=false; setErr("Upload failed — try a smaller photo."); }
+}
+function vGateWait(t){
+  const sub = t.last_submission;
+  const bounced = sub && sub.status === "bounced";
+  return '<div class="center" style="text-align:center">' +
+    (bounced
+      ? '<div class="banner red">↩ Bounced by your host' + (sub.host_note ? ': "' + esc(sub.host_note) + '"' : "") + '</div><p class="muted" style="margin-top:12px">Fix it up and submit again — every bounce costs time!</p>'
+      : '<div class="banner">⏳ Submission in — waiting for your host\'s gate check…</div><p class="muted" style="margin-top:12px">Use the wait: tidy your worksheet, prep the next round.</p>') +
+    '</div>';
+}
+
+/* ---------- Host game ---------- */
+function vHostGame(){
+  if(!S.state) return '<p class="muted">Connecting…</p>';
+  const sess = S.state.session;
+  if(sess.status === "completed") return vPodium();
+  const tabs = ['lobby','race','review'].map(x =>
+    '<button class="tab' + (S.hostTab===x?' on':'') + '" onclick="S.hostTab=\'' + x + '\';render()">' + x +
+    (x==='review' && (S.state.pending||[]).length ? ' (' + S.state.pending.length + ')' : '') + '</button>').join("");
+  let body = S.hostTab==="lobby" ? hostLobby() : S.hostTab==="race" ? hostRace() : hostReview();
+  const ctl = '<div class="row" style="margin-top:16px">' +
+    (sess.status==="lobby" ? '<button class="btn gold fill" onclick="setStatus(\'live\')">▶ Start Game</button>' : "") +
+    (sess.status==="live" ? '<button class="btn warn" onclick="setStatus(\'paused\')">⏸ Pause (save point)</button>' : "") +
+    (sess.status==="paused" ? '<button class="btn gold fill" onclick="setStatus(\'live\')">▶ Resume</button>' : "") +
+    '<button class="btn danger" onclick="if(confirm(\'End this game for everyone?\'))setStatus(\'completed\')">🏁 End Game</button></div>';
+  return '<div><div class="row spread"><div class="df title-xl" style="font-size:1.2rem">' + esc(sess.name) + '</div>' +
+    '<div>Join code: <span class="code-big" style="font-size:1.5rem">' + esc(sess.code) + '</span></div></div>' +
+    '<div class="tabs" style="margin-top:10px">' + tabs + '</div>' + body + ctl +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function setStatus(st){ const r = await rpc("sl_set_status",{p_session:S.sessionId,p_host_token:S.hostToken,p_status:st}); if(r.ok) pollOnce(); else setErr(r.error); }
+function hostLobby(){
+  const sess = S.state.session;
+  const teams = (S.state.teams||[]).map(t =>
+    '<div class="teamcard"><h4>' + esc(t.name) + '</h4>' +
+    (t.members||[]).map(m => '<div class="member">• ' + esc(m.name) + '</div>').join("") + '</div>').join("");
+  const lobby = (S.state.lobby||[]).map(p => '<span class="chip">' + esc(p.name) + '</span>').join(" ");
+  return '<div>' +
+    '<p class="muted">' + ((S.state.lobby||[]).length + (S.state.teams||[]).reduce((a,t)=>a+(t.members||[]).length,0)) + ' player(s) joined · team mode: <b style="color:var(--cyan)">' + esc(sess.team_mode) + '</b></p>' +
+    (lobby ? '<label>Unassigned players</label><div class="row" style="margin-bottom:12px">' + lobby + '</div>' : "") +
+    ((S.state.lobby||[]).length ? '<button class="btn primary" onclick="autoTeams()">⚡ Auto-form balanced teams</button>' : "") +
+    '<div class="grid3" style="margin-top:14px">' + (teams || '<p class="muted">No teams yet.</p>') + '</div></div>';
+}
+async function autoTeams(){ const r = await rpc("sl_auto_teams",{p_session:S.sessionId,p_host_token:S.hostToken}); if(r.ok) pollOnce(); else setErr(r.error); }
+function hostRace(){
+  const started = S.state.session.settings && S.state.session.settings.started_at;
+  const lanes = (S.state.teams||[]).slice().sort((a,b)=>(a.finish_rank||99)-(b.finish_rank||99)).map(t => {
+    const stat = t.stage==="finished" ? ('🏆 #' + t.finish_rank) : STAGE_LABEL[t.stage].split("—")[0];
+    return '<div class="lane"><span class="nm">' + esc(t.name) + '</span>' + trackHtml(t) +
+      '<span class="chip' + (t.stage==="finished"?' done':'') + '">' + esc(stat) + '</span></div>';
+  }).join("");
+  return '<div>' + (lanes || '<p class="muted">Teams appear here once formed.</p>') +
+    (started ? '<p class="muted" style="font-size:.75rem">Game started ' + new Date(started).toLocaleString() + '</p>' : "") + '</div>';
+}
+function hostReview(){
+  const cards = (S.state.pending||[]).map(p =>
+    '<div class="subcard"><div class="row spread"><b class="df" style="font-size:.8rem">' + esc(p.team_name) + '</b>' +
+    '<span class="badge y">Checkpoint ' + p.checkpoint + '</span></div>' +
+    (p.photo_url ? '<a href="' + esc(p.photo_url) + '" target="_blank"><img src="' + esc(p.photo_url) + '"></a>' : '<p class="muted">No photo attached.</p>') +
+    (p.note ? '<p class="muted">Team note: ' + esc(p.note) + '</p>' : "") +
+    '<input id="note-' + p.id + '" placeholder="Note to the team (needed for a bounce)" style="margin:8px 0">' +
+    '<div class="row"><button class="btn small gold fill" onclick="review(\'' + p.id + '\',true)">✔ Pass</button>' +
+    '<button class="btn small danger" onclick="review(\'' + p.id + '\',false)">↩ Bounce</button></div></div>').join("");
+  return cards || '<p class="muted">No submissions waiting. Gates are clear.</p>';
+}
+async function review(id, pass){
+  const note = ($("#note-"+id) && $("#note-"+id).value) || "";
+  if(!pass && !note.trim()) return setErr("Add a note so the team knows what to fix.");
+  const r = await rpc("sl_review",{p_session:S.sessionId,p_host_token:S.hostToken,p_submission:id,p_pass:pass,p_note:note});
+  if(r.ok){ S.err=""; pollOnce(); } else setErr(r.error);
+}
+
+/* ---------- Podium ---------- */
+function vPodium(){
+  const teams = (S.state && S.state.teams) || [];
+  const done = teams.filter(t=>t.finish_rank).sort((a,b)=>a.finish_rank-b.finish_rank);
+  const rest = teams.filter(t=>!t.finish_rank);
+  const started = S.state && S.state.session.settings && S.state.session.settings.started_at ? new Date(S.state.session.settings.started_at).getTime() : null;
+  const cols = ['p2','p1','p3'];
+  const order = [done[1], done[0], done[2]];
+  const podium = '<div class="podium">' + order.map((t,i) => t ?
+    '<div class="pcol ' + cols[i] + '"><div class="pname">' + esc(t.name) + '</div><div class="pblock">' + t.finish_rank + '</div></div>' : '').join("") + '</div>';
+  const rows = done.concat(rest).map(t =>
+    '<tr><td>' + (t.finish_rank ? "#"+t.finish_rank : "—") + '</td><td class="df" style="font-size:.72rem">' + esc(t.name) + '</td>' +
+    '<td>' + (t.members||[]).map(m=>esc(m.name)).join(", ") + '</td>' +
+    '<td>' + ((t.techniques_cleared||[]).length) + ' techniques</td>' +
+    '<td>' + (t.finished_at && started ? fmtDur(new Date(t.finished_at).getTime()-started) : esc(STAGE_LABEL[t.stage]||"")) + '</td>' +
+    '<td>' + (t.award ? "🏅 " + esc(t.award) : "") + '</td></tr>').join("");
+  const hostAward = (S.role==="host" && teams.length) ?
+    '<div class="row" style="margin-top:14px"><select id="awteam" style="max-width:220px">' + teams.map(t=>'<option value="'+t.id+'">'+esc(t.name)+'</option>').join("") + '</select>' +
+    '<button class="btn small gold" onclick="giveAward()">🏅 Client\'s Choice award</button></div>' : "";
+  return '<div style="text-align:center"><img src="' + LOGO + '" alt="" style="height:90px;width:auto"><div class="df title-xl">🏁 ' + (done.length ? "We have a winner!" : "Race Results") + '</div>' +
+    podium + '<table style="max-width:900px;margin:10px auto;text-align:left"><tr><th>Rank</th><th>Team</th><th>Players</th><th>Round 1</th><th>Time / status</th><th>Award</th></tr>' + rows + '</table>' +
+    hostAward + '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function giveAward(){ const r = await rpc("sl_award",{p_session:S.sessionId,p_host_token:S.hostToken,p_team:$("#awteam").value,p_award:"Client's Choice"}); if(r.ok) pollOnce(); }
+function confetti(){
+  const glyphs = ["⚡","✦","●","▲","■"], colors = ["#f7c33f","#53c7e8","#f0713a","#bd4aad","#5fae52"];
+  for(let i=0;i<60;i++){
+    const d = document.createElement("div"); d.className="confetti"; d.textContent = glyphs[i%glyphs.length];
+    d.style.left = Math.random()*100+"vw"; d.style.color = colors[i%colors.length];
+    d.style.animationDuration = (2.5+Math.random()*2.5)+"s"; d.style.animationDelay = (Math.random()*1.5)+"s";
+    document.body.appendChild(d); setTimeout(()=>d.remove(), 7000);
+  }
+}
+
+/* ---------- Free Play ---------- */
+function vFpSetup(){
+  return '<div class="center">' +
+    '<div class="df title-xl" style="font-size:1.4rem;color:var(--yellow)">Free Play</div>' +
+    '<p class="muted">SparkLab as your design-thinking toolkit — no race, no host, your own pace. Solo or with your team, on your own real project.</p>' +
+    '<label>Who\'s playing? (1–4 names)</label>' +
+    '<input id="fp1" placeholder="Name 1" maxlength="24"><input id="fp2" placeholder="Name 2 (optional)" maxlength="24" style="margin-top:6px"><input id="fp3" placeholder="Name 3 (optional)" maxlength="24" style="margin-top:6px"><input id="fp4" placeholder="Name 4 (optional)" maxlength="24" style="margin-top:6px">' +
+    '<label>Team / studio name</label><input id="fptn" placeholder="My Studio" maxlength="24">' +
+    '<label>Your client & problem (one sentence)</label><textarea id="fpcl" rows="2" placeholder="e.g. Our school cafeteria wastes food every day…"></textarea>' +
+    '<div class="row" style="margin-top:16px"><button class="btn gold fill" onclick="fpStart()" ' + (S.busy?"disabled":"") + '>Start Free Play</button></div>' +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function fpStart(){
+  const names = ["fp1","fp2","fp3","fp4"].map(id=>$("#"+id).value.trim()).filter(Boolean);
+  const teamName = $("#fptn").value, client = $("#fpcl").value;
+  if(!names.length) return setErr("Enter at least one name.");
+  S.busy = true; render();
+  try{
+    const r = await rpc("sl_freeplay_start",{ p_names:names, p_team_name:teamName, p_client:client });
+    S.busy = false;
+    if(!r.ok) return setErr("Could not start: " + r.error);
+    S.role="freeplay"; S.sessionId=r.session_id; S.teamId=r.team_id; S.resumeCode=r.resume_code;
+    S.fp = { stage:"r1", techniques:[], checks:{}, client: client };
+    lsSet("fp", S.fp); saveIds(); go("fpplay");
+  }catch(e){ S.busy=false; setErr("Network problem — try again."); }
+}
+function vFpResume(){
+  return '<div class="center"><div class="df title-xl" style="font-size:1.4rem;color:var(--yellow)">Resume Free Play</div>' +
+    '<label>Resume code</label><input id="rcode" maxlength="8" style="text-transform:uppercase;letter-spacing:.25em;font-family:Audiowide">' +
+    '<div class="row" style="margin-top:16px"><button class="btn gold fill" onclick="fpResume()">Resume</button></div>' +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+async function fpResume(){
+  try{
+    const r = await rpc("sl_freeplay_resume",{ p_resume_code: $("#rcode").value.trim() });
+    if(!r.ok) return setErr("No saved Free Play found for that code (saves last 14 days after completion).");
+    S.role="freeplay"; S.sessionId=r.session_id; S.teamId=r.team_id; S.resumeCode=$("#rcode").value.trim().toUpperCase();
+    const t = (r.teams||[])[0];
+    S.fp = (t && t.freeplay_state && t.freeplay_state.stage) ? t.freeplay_state : { stage:"r1", techniques:[], checks:{}, client:(r.session.settings||{}).client || "" };
+    lsSet("fp", S.fp); saveIds(); go("fpplay");
+  }catch(e){ setErr("Network problem — try again."); }
+}
+async function fpSave(completed){
+  lsSet("fp", S.fp);
+  try{ await rpc("sl_freeplay_save",{ p_resume_code:S.resumeCode, p_state:S.fp, p_completed:!!completed }); }catch(e){}
+}
+function vFpPlay(){
+  const fp = S.fp || { stage:"r1", techniques:[], checks:{} };
+  const stageNames = { r1:"Round 1 — Technique Sprint", r2:"Round 2 — The Idea Generator", r3:"Round 3 — Drafting & Sketching", done:"Complete!" };
+  let body = "";
+  if(fp.stage === "r1"){
+    const tech = TECHS[S.activeTech];
+    const chips = TECHS.map((x,i)=>'<span class="chip'+(fp.techniques.includes(x.name)?' done':'')+(i===S.activeTech?' cur':'')+'" onclick="S.activeTech='+i+';render()" style="cursor:pointer">'+(fp.techniques.includes(x.name)?'✓ ':'')+esc(x.name)+'</span>').join(" ");
+    body = '<div class="grid2"><div><div class="tech-panel" style="background:'+tech.color+'">' +
+      '<div class="row spread"><span class="tech-name">'+(S.spin.active?esc(TECHS[S.spin.idx].name):esc(tech.name))+'</span>' +
+      '<span><button class="btn small" style="border-color:#fff;color:#fff" onclick="fpSpin()">🎲 Spin</button> ' +
+      '<button class="btn small gold fill" onclick="fpClear()" '+(fp.techniques.includes(tech.name)?"disabled":"")+'>'+(fp.techniques.includes(tech.name)?"Cleared ✓":"Mark cleared")+'</button></span></div>' +
+      '<p style="font-size:.9rem">'+esc(tech.summary)+'</p><ol class="steps">'+tech.steps.map(s=>'<li>'+esc(s)+'</li>').join("")+'</ol></div>' +
+      '<div class="row" style="margin-top:10px">'+chips+'</div></div>' +
+      '<div class="panel"><h4 class="df" style="margin:0 0 8px;color:var(--yellow);font-size:.8rem;text-transform:uppercase">Self-check</h4>' +
+      '<p class="muted">Run as many techniques as you like on your problem'+(fp.client?' — <i>"'+esc(fp.client)+'"</i>':'')+'. Log a sticky note per session on your Ideation Development Form. Cleared so far: <b style="color:var(--yellow)">'+fp.techniques.length+'</b></p>' +
+      '<button class="btn gold fill" onclick="fpNext(\'r2\')" '+(fp.techniques.length?'':'disabled')+'>I\'ve logged my sessions → Round 2</button></div></div>';
+  } else if(fp.stage === "r2" || fp.stage === "r3"){
+    const list = fp.stage==="r2" ? R2_CHECKS : R3_CHECKS;
+    const key = fp.stage;
+    const checks = list.map((c,i)=>{
+      const ck = fp.checks[key+i];
+      return '<label class="check"><input type="checkbox" '+(ck?'checked':'')+' onchange="S.fp.checks[\''+key+i+'\']=this.checked;fpSave(false)"><span>'+esc(c)+'</span></label>';
+    }).join("");
+    const allDone = list.every((c,i)=>fp.checks[key+i]);
+    body = '<div class="center"><div class="panel">' + checks + '</div>' +
+      '<div class="row" style="margin-top:14px"><button class="btn gold fill" onclick="fpNext(\''+(fp.stage==="r2"?"r3":"done")+'\')" '+(allDone?'':'disabled')+'>'+(fp.stage==="r2"?"Blueprints ready → Round 3":"Finish Free Play 🏁")+'</button></div></div>';
+  } else {
+    body = '<div class="center" style="text-align:center"><div class="df title-xl" style="color:var(--yellow)">⚡ Mission complete!</div>' +
+      '<p class="muted">Your Ideation Development Form is done — three concepts, drawn, digitized, and enhanced. Take it to your client!</p></div>';
+  }
+  return '<div><div class="row spread" style="margin-bottom:12px">' +
+    '<span class="badge y">Free Play · ' + esc(stageNames[fp.stage]) + '</span>' +
+    '<span class="badge">Resume code: <b style="letter-spacing:.15em">' + esc(S.resumeCode||"") + '</b></span></div>' + body +
+    '<div class="err">' + esc(S.err) + '</div></div>';
+}
+function fpSpin(){
+  if(S.spin.active) return;
+  const avail = TECHS.map((x,i)=>i).filter(i => !S.fp.techniques.includes(TECHS[i].name) && i !== S.activeTech);
+  if(!avail.length) return;
+  const final = avail[Math.floor(Math.random()*avail.length)];
+  S.spin.active = true; let n=0;
+  const reel = setInterval(()=>{ S.spin.idx = avail[n%avail.length]; n++; render();
+    if(n>9){ clearInterval(reel); S.spin.active=false; S.activeTech=final; render(); } },100);
+}
+function fpClear(){ const nm = TECHS[S.activeTech].name; if(!S.fp.techniques.includes(nm)) S.fp.techniques.push(nm); fpSave(false); render(); }
+function fpNext(stage){ S.fp.stage = stage; fpSave(stage==="done"); render(); if(stage==="done") confetti(); }
+
+/* ================= BOOT ================= */
+(function boot(){
+  var bl = document.getElementById("brandlogo"); if(bl) bl.src = LOGO;
+  if(S.sessionId && S.hostToken){ S.role="host"; startPoll(); S.screen="hostgame"; }
+  else if(S.sessionId && S.playerId){ S.role="player"; startPoll(); S.screen="lobby"; }
+  else if(S.resumeCode && S.fp){ S.role="freeplay"; S.screen="fpplay"; }
+  render();
+})();
