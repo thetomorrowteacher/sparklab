@@ -134,7 +134,7 @@ function vLanding(){
   return '<div class="center" style="text-align:center">' +
     '<img src="' + LOGO + '" alt="SparkLab" style="display:block;margin:0 auto;height:190px;width:auto;filter:drop-shadow(0 0 18px rgba(83,199,232,.35))">' +
     '<div class="df title-xl" style="margin-bottom:4px;font-size:1.4rem">Welcome to the Lab</div>' +
-    '<p class="muted">The design thinking race. Spin techniques, forge concepts, draft your solution — first team through every checkpoint wins.</p>' +
+    '<p class="muted">The ideation race. Spin techniques, forge concepts, draft your solution — first team through every checkpoint wins.</p>' +
     '<div class="grid3" style="margin-top:22px">' +
       '<button class="btn primary" onclick="go(\'join\')">Join a Game</button>' +
       '<button class="btn gold" onclick="go(\'fpsetup\')">Free Play</button>' +
@@ -483,7 +483,7 @@ function confetti(){
 function vFpSetup(){
   return '<div class="center">' +
     '<div class="df title-xl" style="font-size:1.4rem;color:var(--yellow)">Free Play</div>' +
-    '<p class="muted">SparkLab as your design-thinking toolkit — no race, no host, your own pace. Solo or with your team, on your own real project.</p>' +
+    '<p class="muted">SparkLab as your ideation toolkit — no race, no host, your own pace. Solo or with your team, on your own real project.</p>' +
     '<label>Who\'s playing? (1–4 names)</label>' +
     '<input id="fp1" placeholder="Name 1" maxlength="24"><input id="fp2" placeholder="Name 2 (optional)" maxlength="24" style="margin-top:6px"><input id="fp3" placeholder="Name 3 (optional)" maxlength="24" style="margin-top:6px"><input id="fp4" placeholder="Name 4 (optional)" maxlength="24" style="margin-top:6px">' +
     '<label>Team / studio name</label><input id="fptn" placeholder="My Studio" maxlength="24">' +
